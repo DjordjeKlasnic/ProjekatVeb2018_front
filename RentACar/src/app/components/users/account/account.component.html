@@ -1,0 +1,31 @@
+<form id="forma" class="rec">
+  <h3 id="reg_title" class="jumbotron">Registration</h3>
+
+  <div class="form-group row" style="margin-top: 10%">
+    <label for="first_name">First name: </label>
+    <input type="text" class="form-control" name="first_name" id="first_name" [(ngModel)]="user.FullName" required
+           style="width: 40%;margin-left: 9%"/>
+  </div>
+
+  <div class="form-group row">
+    <label for="last_name">Last name: </label>
+    <input type="text" class="form-control" name="last_name" id="last_name" [(ngModel)]="user.Email" required
+           style="width:40%;margin-left: 9%"/>
+  </div>
+  
+  <div class="form-group row">
+
+    <label for="role">Role: </label>
+    <select class="form-control" name="r" [(ngModel)]="defaultValue" id="role" style="width: 40%;margin-left: 14%">
+      <option *ngFor="let v of values" [ngValue]="v">{{v}}</option>
+    </select>
+
+  </div>
+
+  <div style="margin-top: 10%">
+    <input type="button" class="btn btn-dark" routerLink="/account" value="Back"
+           style="float: left;margin: 3% 0 10% 0;">
+    <input type="submit" class="btn btn-dark" (click)="addUser()" value="Submit"
+           style="float: right;margin:3% 5% 10% 0">
+  </div>
+</form>
