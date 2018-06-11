@@ -1,3 +1,34 @@
-<p>
-  login works!
-</p>
+<form id="forma" class="rec">
+  <h3 id="reg_title" class="jumbotron">Login</h3>
+
+  <div class="form-group row" style="margin-top: 10%">
+    <label for="username">Username: </label>
+    <input type="text" class="form-control" name="username" id="userame" [(ngModel)]="userLogin.username" required
+           style="width: 40%;margin-left: 9%"/>
+  </div>
+
+  <div class="form-group row">
+    <label for="password">Password: </label>
+    <input type="text" class="form-control" name="password" id="password" [(ngModel)]="userLogin.password" required
+           style="width:40%;margin-left: 9%"/>
+  </div>
+
+  
+  
+  <!--
+  <div class="form-group row">
+
+    <label for="role">Role: </label>
+    <select class="form-control" name="r" [(ngModel)]="defaultValue" id="role" style="width: 40%;margin-left: 14%">
+      <option *ngFor="let v of values" [ngValue]="v">{{v}}</option>
+    </select>
+
+  </div>
+-->
+  <div style="margin-top: 10%">
+    <input type="button" class="btn btn-dark" routerLink="/main-page" value="Back"
+           style="float: left;margin: 3% 0 10% 0;">
+    <input type="submit" class="btn btn-dark" (click)="sendLogin()" routerLink="/main-page" value="Submit"
+           style="float: right;margin:3% 5% 10% 0">
+  </div>
+</form>

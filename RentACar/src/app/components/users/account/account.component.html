@@ -8,11 +8,30 @@
   </div>
 
   <div class="form-group row">
-    <label for="last_name">Last name: </label>
-    <input type="text" class="form-control" name="last_name" id="last_name" [(ngModel)]="user.Email" required
+    <label for="email">Email: </label>
+    <input type="text" class="form-control" name="email" id="email" [(ngModel)]="user.Email" required
+           style="width:40%;margin-left: 9%"/>
+  </div>
+
+  <div class="form-group row">
+    <label for="date_birth">DateBirth: </label>
+    <input type="text" class="form-control" name="date_birth" id="date_birth" [(ngModel)]="user.DateBirth" required
+           style="width:40%;margin-left: 9%"/>
+  </div>
+
+  <div class="form-group row">
+    <label for="password">Password: </label>
+    <input type="text" class="form-control" name="password" id="password" [(ngModel)]="user.Password" required
+           style="width:40%;margin-left: 9%"/>
+  </div>
+
+  <div class="form-group row">
+    <label for="confirmPassword">Cofirm Password: </label>
+    <input type="text" class="form-control" name="confirmPassword" id="confirmPassword" [(ngModel)]="user.confirmPassword" required
            style="width:40%;margin-left: 9%"/>
   </div>
   
+  <!--
   <div class="form-group row">
 
     <label for="role">Role: </label>
@@ -21,9 +40,9 @@
     </select>
 
   </div>
-
+-->
   <div style="margin-top: 10%">
-    <input type="button" class="btn btn-dark" routerLink="/account" value="Back"
+    <input type="button" class="btn btn-dark" routerLink="/main-page" value="Back"
            style="float: left;margin: 3% 0 10% 0;">
     <input type="submit" class="btn btn-dark" (click)="addUser()" value="Submit"
            style="float: right;margin:3% 5% 10% 0">

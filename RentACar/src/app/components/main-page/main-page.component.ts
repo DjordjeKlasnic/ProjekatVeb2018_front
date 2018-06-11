@@ -11,5 +11,11 @@ export class MainPageComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  
+  isLogg(){
+    if(localStorage.role=="Admin"){
+      return false;
+    }
+    return true;
+  }
 }
