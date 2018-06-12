@@ -11,6 +11,11 @@ import { AccountComponent } from './components/users/account/account.component';
 import { FormsModule } from '@angular/forms';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { RegisterService } from './service/register.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import{TokenInterceptor} from './interceptors/interceptor';
+import {CanActivateViaAuthGuard} from './guard/auth.guard';
+
+
 
 @NgModule({
   declarations: [
@@ -25,7 +30,11 @@ import { RegisterService } from './service/register.service';
     HttpClientModule,
     FormsModule
   ],
-  providers: [UserService, VehicleService,RegisterService],
+  providers: [UserService, VehicleService,RegisterService,{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

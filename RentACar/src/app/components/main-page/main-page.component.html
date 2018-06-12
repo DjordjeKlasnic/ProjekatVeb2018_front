@@ -2,15 +2,22 @@
     <form id="forma1" class="rec">
 
     <h3 id="reg_title" class="jumbotron">Main Page</h3>
+    <h3 id="reg_title" *ngIf="!isNotLogg()" >Welcome</h3>
 
-  <div style="margin-top: 10%" *ngIf="isLogg()">
+  <div style="margin-top: 10%" *ngIf="isNotLogg()">
     <input type="button"  class="btn btn-dark" routerLink="/register" value="Register"
            style="float: left;margin: 3% 0 10% 0;">
     
   </div>
-  <div style="margin-top: 10%">
+  <div style="margin-top: 10%" *ngIf="isNotLogg()">
     <input type="button" class="btn btn-dark" routerLink="/login" value="Login"
             style="float: right;margin:3% 5% 10% 0">
     
   </div>
+  <div style="margin-top: 10%" *ngIf="!isNotLogg()">
+    <input type="button" class="btn btn-dark" (click)="sendLogut()" routerLink="/main-page" value="LogOut"
+            style="float: right;margin:3% 5% 10% 0">
+    
+  </div>
+
 </form>
