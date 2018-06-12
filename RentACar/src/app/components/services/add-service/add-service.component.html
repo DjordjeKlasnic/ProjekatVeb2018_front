@@ -1,0 +1,17 @@
+<div align="center" style="overflow-y: scroll">
+  <h1 class="jumbotron">Existing services</h1>
+  <table class="table" style="width: 70%;margin-top: 4%;height: 50%;overflow-x: scroll">
+    <tr class="table-dark">
+      <td scope="col">Name</td>
+      <td>&nbsp;</td>
+    </tr>
+    <span *ngFor="let service of services">
+    <tr class="table-light" *ngIf="service.Approved">
+      <td><strong>{{service.Name}}</strong></td>
+      <td scope="row">
+        <button class="btn btn-info" (click)="addBranchOffice(service)">Add branch office</button>
+      </td>
+    </tr>
+      </span>
+  </table>
+</div>
