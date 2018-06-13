@@ -1,3 +1,31 @@
+<form id="forma" class="rec" #addServiceForm = "ngForm">
+  <h3 id="reg_title" class="jumbotron">Add new service</h3>
+
+  <div class="form-group row" style="margin-top: 10%">
+    <label for="service_name">Service name: </label>
+    <input type="text" class="form-control" name="service_name" id="service_name" [(ngModel)]="service.Name" required
+           style="width: 40%;margin-left: 9%" />
+  </div>
+
+  <div class="form-group row">
+    <label for="email">Email: </label>
+    <input type="text" class="form-control" name="email" id="email" [(ngModel)]="service.Email" required
+           style="width:40%;margin-left: 9%"/>
+  </div>
+
+  <div class="form-group row">
+    <label >Description: </label>
+    <textarea rows="3" type="text" class="form-control" name="description" id="description" [(ngModel)]="service.Description" required
+             style="width:40%;margin-left: 9%"></textarea>
+  </div>
+  <div style="margin-top: 10%">
+    <input type="submit" class="btn btn-dark" (click)="addService(); addServiceForm.reset() " routerLink="/service" value="Submit"
+           style="float: right;margin:3% 5% 10% 0" />
+  </div>
+</form>
+<div>
+
+</div>
 <div align="center" style="overflow-y: scroll">
   <h1 class="jumbotron">Existing services</h1>
   <table class="table" style="width: 70%;margin-top: 4%;height: 50%;overflow-x: scroll">

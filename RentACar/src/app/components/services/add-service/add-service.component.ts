@@ -3,6 +3,7 @@ import {Service} from '../../../model/service';
 import {ServiceService} from '../../../service/service.service';
 import {Router} from '@angular/router';
 import {MessageService} from '../../../service/message-service.service';
+import {User} from '../../../model/user';
 
 @Component({
   selector: 'app-add-service',
@@ -12,6 +13,7 @@ import {MessageService} from '../../../service/message-service.service';
 export class AddServiceComponent implements OnInit {
 
   services: Service[];
+  service: Service;
 
   constructor(private serviceService: ServiceService, private router: Router, private messageService: MessageService) {
   }
@@ -19,6 +21,7 @@ export class AddServiceComponent implements OnInit {
   ngOnInit() {
     this.services = [];
     this.getAllServices();
+    this.service = new Service();
   }
 
   getAllServices() {
@@ -32,5 +35,11 @@ export class AddServiceComponent implements OnInit {
   addBranchOffice(service: Service) {
     this.messageService.sendMessage(service);
     this.router.navigate(['/branch-offices']);
+  }
+
+  addService() {
+    this.serviceService.addService(this.service).subscribe(data => {
+
+    });
   }
 }
