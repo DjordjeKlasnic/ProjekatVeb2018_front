@@ -3,5 +3,5 @@ export class User {
     Email: string;
     DateBirth: Date;
     Password:string;
-    CofirmPassword:string;
+    ConfirmPassword:string;
 }

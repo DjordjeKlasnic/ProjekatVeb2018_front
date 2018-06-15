@@ -5,6 +5,7 @@ import {AccountComponent} from './components/users/account/account.component';
 import {MainPageComponent} from './components/main-page/main-page.component';
 import {AddBranchOfficeComponent} from './components/branch-office/add-branch-office/add-branch-office.component';
 import {AddServiceComponent} from './components/services/add-service/add-service.component';
+import {CanActivateViaAuthGuard} from './guard/auth.guard';
 
 
 const appRoutes: Routes = [
@@ -14,7 +15,7 @@ const appRoutes: Routes = [
 
   {path: 'register', component: AccountComponent},
   {path: 'branch-offices', component: AddBranchOfficeComponent},
-  {path: 'services', component: AddServiceComponent}
+  {path: 'services', component: AddServiceComponent,canActivate: [CanActivateViaAuthGuard]}
 
 ];
 

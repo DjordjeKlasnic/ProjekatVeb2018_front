@@ -1,8 +1,7 @@
 export class Service {
-  constructor(public Name?,
-              public Logo?,
-              public Email?,
-              public Description?,
-              public Approved?) {
-  }
+    UserName: string;
+    Name: string;
+    Email: string;
+    Description:string;
+  
 }

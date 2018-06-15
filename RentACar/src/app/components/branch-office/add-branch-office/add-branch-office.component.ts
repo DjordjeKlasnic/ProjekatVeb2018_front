@@ -1,6 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Route} from '@angular/router';
 import {MessageService} from '../../../service/message-service.service';
+import {Service} from '../../../model/service';
+import {Broffice} from '../../../model/broffice';
+import { BranchServiceService } from '../../../service/branch-service.service';
+import { GlobalService } from '../../../service/global.service';
 
 @Component({
   selector: 'app-add-branch-office',
@@ -9,12 +13,24 @@ import {MessageService} from '../../../service/message-service.service';
 })
 export class AddBranchOfficeComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private messageService: MessageService) {
+  
+  bo:Broffice;
+  serviceName:string;
+
+  constructor(private route: ActivatedRoute,private branchService:BranchServiceService,private globalService:GlobalService) {
   }
 
   ngOnInit() {
-    this.messageService.currentMessage.subscribe(object => {
-      console.log(object);
+    this.bo=new Broffice();
+    this.serviceName=this.globalService.getService();
+    console.log(this.serviceName);
+  }
+
+  addBranchOffice(){
+    this.bo.ServiceName=this.serviceName;
+    
+    this.branchService.addBranch(this.bo).subscribe(data => {
+
     });
   }
 

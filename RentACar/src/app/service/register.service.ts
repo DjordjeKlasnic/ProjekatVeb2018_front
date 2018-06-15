@@ -44,6 +44,8 @@ export class RegisterService {
 
           localStorage.setItem('jwt', jwt);
           localStorage.setItem('role', role);
+          let d=JSON.parse(decodedJwtJsonData);
+          localStorage.setItem('username',d.nameid);
         },
         err => {
           console.log('Error occured');

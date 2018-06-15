@@ -1,3 +1,19 @@
-<p>
-  add-branch-office works!
-</p>
+<form id="forma" class="rec" #addBranchForm = "ngForm">
+    <h3 id="reg_title" class="jumbotron">Add Branch Office</h3>
+  
+    <div class="form-group row" style="margin-top: 10%">
+      <label for="service_name">Address: </label>
+      <input type="text" class="form-control" name="address" id="address" [(ngModel)]="bo.Address" required
+             style="width: 40%;margin-left: 9%" />
+    </div>
+  
+    
+  
+   
+    <div style="margin-top: 10%">
+        <input type="button" class="btn btn-dark" routerLink="/services" value="Back"
+             style="float: left;margin: 3% 0 10% 0;">
+      <input type="submit" class="btn btn-dark" (click)="addBranchOffice()" routerLink="/services" value="Submit"
+             style="float: right;margin:3% 5% 10% 0" />
+    </div>
+  </form>

@@ -11,10 +11,12 @@ export class ServiceService {
   }
 
   getAllServices() {
-    return this.http.get('/api/Services/All');
+    return this.http.get('/api/Service');
   }
 
   addService(service: Service){
-    return this.http.post( 'api/Service/PostService', service);
+    let d=localStorage.username;
+    service.UserName=d;
+    return this.http.post( '/api/Service', service);
   }
 }

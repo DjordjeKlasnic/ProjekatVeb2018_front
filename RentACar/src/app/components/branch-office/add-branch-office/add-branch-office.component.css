@@ -1,0 +1,39 @@
+label {
+    margin-top: 5px;
+    font-weight: bold;
+  }
+  
+  input, select {
+    margin-left: 6%;
+  }
+  
+  #reg_title {
+    height: 80%;
+    margin-left: -16.2%;
+    margin-right: -5.9%;
+    text-align: center;
+  }
+  
+  #forma {
+    width: 60%;
+    background: rgba(237, 237, 237, 0.62);
+    margin-left: 20%;
+    padding: 0 3% 10% 8%;
+  }
+  
+  ::-webkit-input-placeholder {
+    font-style: italic;
+  }
+  
+  :-moz-placeholder {
+    font-style: italic;
+  }
+  
+  ::-moz-placeholder {
+    font-style: italic;
+  }
+  
+  :-ms-input-placeholder {
+    font-style: italic;
+  }
+  
