@@ -24,6 +24,7 @@ import { GlobalService } from './service/global.service';
 import { ServicePageComponent } from './components/service-page/service-page.component';
 import { AdminPageComponent } from './components/admin-page/admin-page.component';
 import { CanActivateViaAuthGuardAdmin } from './guard/auth.guard2';
+import { AddCarComponent } from './components/add-car/add-car.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { CanActivateViaAuthGuardAdmin } from './guard/auth.guard2';
     AddServiceComponent,
     AddBranchOfficeComponent,
     ServicePageComponent,
-    AdminPageComponent
+    AdminPageComponent,
+    AddCarComponent
   ],
   imports: [
     BrowserModule,

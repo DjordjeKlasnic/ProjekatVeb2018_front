@@ -28,15 +28,18 @@ export class AddServiceComponent implements OnInit {
   getAllServices() {
     this.serviceService.getAllServices().subscribe(result => {
       this.services = result as Service[];
-      console.log(result);
     });
   }
 
 
   addBranchOffice(service: Service) {
-    console.log(service);
     this.globalService.setService(service.Name);
     this.router.navigate(['/branch-offices']);
+  }
+
+  addCar(service: Service) {
+    this.globalService.setService(service.Name);
+    this.router.navigate(['/add-car']);
   }
 
   addService() {

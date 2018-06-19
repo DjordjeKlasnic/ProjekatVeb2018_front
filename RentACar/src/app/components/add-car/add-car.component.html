@@ -1,0 +1,55 @@
+
+<form class="form-horizontal" id="forma">
+  <fieldset>
+      <h3 id="reg_title" class="jumbotron">Add Car</h3>
+
+  <!-- Form Name -->
+  
+  <!-- Text input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="textinput1">Model</label>  
+    <div class="col-md-4">
+    <input id="textinput1" name="textinput1" type="text" placeholder="enter car model" class="form-control input-md" [(ngModel)]="car.Model" required />
+      
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="textinput2">Maker</label>  
+    <div class="col-md-4">
+    <input id="textinput2" name="textinput2" type="text" placeholder="enter car maker" class="form-control input-md" [(ngModel)]="car.Maker" required />
+      
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="textinput3">Year of Making</label>  
+    <div class="col-md-4">
+    <input id="textinput3" name="textinput3" type="text" placeholder="enter year of making" class="form-control input-md" [(ngModel)]="car.YearOfMaking" required />
+      
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="textinput4">Description</label>  
+    <div class="col-md-4">
+    <input id="textinput4" name="textinput4" type="text" placeholder="..." class="form-control input-md" [(ngModel)]="car.Description" required />
+      
+    </div>
+  </div>
+  
+  <div class="form-group">
+          <label class="col-md-4 control-label" for="button1id"></label>
+          <div class="col-md-8">
+            <input type="submit" class="btn btn-dark" (click)="addCar()" value="Submit" routerLink="/services" style="float: left;margin:3% 5% 10% 0"/>
+            <button id="button2id" name="button2id" class="btn btn-dark" routerLink="/services" style="float: left;margin: 3% 0 10% 0;">Back</button>
+          </div>
+        </div>
+
+  
+  
+  
+
+
+  </fieldset>
+  </form>
+
+
+
