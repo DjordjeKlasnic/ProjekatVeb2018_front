@@ -1,9 +1,17 @@
 .image{
     background-image: url("../assets/classic-car-wallpapers-mobile-For-Desktop-Wallpaper.jpg");
+   
+    
     width: 100%;
     height: 100%;
+    
     position: fixed;
     left: 0px;
+    
     top: 0px;
+    
     z-index: -1;
+    
 }
+
+

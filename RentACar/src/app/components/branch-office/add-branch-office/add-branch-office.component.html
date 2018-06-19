@@ -1,19 +1,34 @@
-<form id="forma" class="rec" #addBranchForm = "ngForm">
-    <h3 id="reg_title" class="jumbotron">Add Branch Office</h3>
-  
-    <div class="form-group row" style="margin-top: 10%">
-      <label for="service_name">Address: </label>
-      <input type="text" class="form-control" name="address" id="address" [(ngModel)]="bo.Address" required
-             style="width: 40%;margin-left: 9%" />
-    </div>
-  
+
+<form class="form-horizontal" id="forma">
+    <fieldset>
+        <h3 id="reg_title" class="jumbotron">Add Branch Office</h3>
+
+    <!-- Form Name -->
     
-  
-   
-    <div style="margin-top: 10%">
-        <input type="button" class="btn btn-dark" routerLink="/services" value="Back"
-             style="float: left;margin: 3% 0 10% 0;">
-      <input type="submit" class="btn btn-dark" (click)="addBranchOffice()" routerLink="/services" value="Submit"
-             style="float: right;margin:3% 5% 10% 0" />
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="textinput1">Address</label>  
+      <div class="col-md-4">
+      <input id="textinput1" name="textinput1" type="text" placeholder="enter address" class="form-control input-md" [(ngModel)]="bo.Address" required />
+        
+      </div>
     </div>
-  </form>
+    
+    <div class="form-group">
+            <label class="col-md-4 control-label" for="button1id"></label>
+            <div class="col-md-8">
+              <input type="submit" class="btn btn-dark" (click)="addBranchOffice()" value="Submit" routerLink="/services" style="float: left;margin:3% 5% 10% 0"/>
+              <button id="button2id" name="button2id" class="btn btn-dark" routerLink="/services" style="float: left;margin: 3% 0 10% 0;">Back</button>
+            </div>
+          </div>
+
+    
+    
+    
+
+
+    </fieldset>
+    </form>
+
+
+

@@ -1,52 +1,73 @@
-<form id="forma" class="rec" #addServiceForm = "ngForm">
-  <h3 id="reg_title" class="jumbotron">Add new service</h3>
+<form class="form-horizontal" id="forma">
+    <fieldset>
+        <h3 id="reg_title" class="jumbotron">Add Service</h3>
 
-  <div class="form-group row" style="margin-top: 10%">
-    <label for="service_name">Service name: </label>
-    <input type="text" class="form-control" name="service_name" id="service_name" [(ngModel)]="service.Name" required
-           style="width: 40%;margin-left: 9%" />
-  </div>
+    <!-- Form Name -->
+    
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="textinput1">Name</label>  
+      <div class="col-md-4">
+      <input id="textinput1" name="textinput1" type="text" placeholder="enter name" class="form-control input-md" [(ngModel)]="service.Name" required />
+        
+      </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="textinput2">Email</label>  
+        <div class="col-md-4">
+        <input id="textinput2" name="textinput2" type="text" placeholder="enter email" class="form-control input-md" [(ngModel)]="service.Email" required />
+          
+        </div>
+      </div>
 
-  <div class="form-group row">
-    <label for="email">Email: </label>
-    <input type="text" class="form-control" name="email" id="email" [(ngModel)]="service.Email" required
-           style="width:40%;margin-left: 9%"/>
-  </div>
+      <div class="form-group">
+          <label class="col-md-4 control-label" for="textinput3">Description</label>  
+          <div class="col-md-4">
+          <input id="textinput3" name="textinput3" type="text" placeholder="enter description" class="form-control input-md" [(ngModel)]="service.Description" required />
+            
+          </div>
+        </div>
+    
+    
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="button1id"></label>
+        <div class="col-md-8">
+          <input type="submit" (click)="addService()" value="Submit" class="btn btn-dark" routerLink="/main-page"  style="float: left;margin:3% 5% 10% 0"/>
+          <button id="button2id" name="button2id" class="btn btn-dark" routerLink="/main-page" style="float: left;margin: 3% 0 10% 0;">Back</button>
+        </div>
+      </div>
 
-  <div class="form-group row">
-    <label >Description: </label>
-    <textarea rows="3" type="text" class="form-control" name="description" id="description" [(ngModel)]="service.Description" required
-             style="width:40%;margin-left: 9%"></textarea>
-  </div>
-  <div style="margin-top: 10%">
-      <input type="button" class="btn btn-dark" routerLink="/main-page" value="Back"
-           style="float: left;margin: 3% 0 10% 0;">
-    <input type="submit" class="btn btn-dark" (click)="addService()" routerLink="/main-page" value="Submit"
-           style="float: right;margin:3% 5% 10% 0" />
-  </div>
-</form>
-<div>
 
-</div>
+    </fieldset>
+    </form>
+
+
+
+
+
+
+
 
 <div class="container" align="center" style="overflow-y: scroll">
-    <h2>Existing services</h2>
     <table class="table table-dark" style="width: 70%;margin-top: 4%;height: 50%;overflow-x: scroll">
       <thead>
         <tr>
-          
+          <th>SERVICES:</th>
         </tr>
       </thead>
-      <tbody>
-          <span *ngFor="let service of services">
-              <tr  *ngIf="service.Approved">
-                <td><strong>{{service.Name}}</strong></td>
-                <td scope="row">
-                  <button class="btn btn-info" (click)="addBranchOffice(service)">Add branch office</button>
+       
+          <tr *ngFor="let service of services">
+              
+                
+                <td *ngIf="service.Approved">
+                  {{service.Name}}
                 </td>
-              </tr>
-                </span>
-      </tbody>
+                <td *ngIf="service.Approved">
+                    <button class="btn btn-info" (click)="addBranchOffice(service)">Add branch office</button>
+                  </td>
+              </tr>     
+        
     </table>
   </div>
 
@@ -55,22 +76,4 @@
 
 
 
-<!--
-<div align="center" style="overflow-y: scroll">
-  <h1 class="jumbotron">Existing services</h1>
-  <table class="table" style="width: 70%;margin-top: 4%;height: 50%;overflow-x: scroll">
-    <tr class="table-dark">
-      <td scope="col">Name</td>
-      <td>&nbsp;</td>
-    </tr>
-    <span *ngFor="let service of services">
-    <tr class="table-light" *ngIf="service.Approved">
-      <td><strong>{{service.Name}}</strong></td>
-      <td scope="row">
-        <button class="btn btn-info" (click)="addBranchOffice(service)">Add branch office</button>
-      </td>
-    </tr>
-      </span>
-  </table>
-</div>
--->
+

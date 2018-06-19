@@ -21,6 +21,9 @@ import {MessageService} from './service/message-service.service';
 import {ServiceService} from './service/service.service';
 import {CanActivateViaAuthGuard} from './guard/auth.guard';
 import { GlobalService } from './service/global.service';
+import { ServicePageComponent } from './components/service-page/service-page.component';
+import { AdminPageComponent } from './components/admin-page/admin-page.component';
+import { CanActivateViaAuthGuardAdmin } from './guard/auth.guard2';
 
 
 @NgModule({
@@ -30,7 +33,9 @@ import { GlobalService } from './service/global.service';
     AccountComponent,
     MainPageComponent,
     AddServiceComponent,
-    AddBranchOfficeComponent
+    AddBranchOfficeComponent,
+    ServicePageComponent,
+    AdminPageComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +43,7 @@ import { GlobalService } from './service/global.service';
     HttpClientModule,
     FormsModule
   ],
-  providers: [UserService,GlobalService, VehicleService,BranchServiceService, RegisterService, MessageService, VehicleService, ServiceService,CanActivateViaAuthGuard,
+  providers: [UserService,GlobalService, VehicleService,BranchServiceService, RegisterService, MessageService, VehicleService, ServiceService,CanActivateViaAuthGuard,CanActivateViaAuthGuardAdmin,
     {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,

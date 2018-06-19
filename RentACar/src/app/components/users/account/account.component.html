@@ -1,46 +1,97 @@
+<form class="form-horizontal" id="forma">
+    <fieldset>
+    
+    <!-- Form Name -->
+    <h3 id="reg_title" class="jumbotron">Registration</h3>
+    
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="fullname">Full Name</label>  
+      <div class="col-md-4">
+      <input id="fullname" name="fullname" type="text" placeholder="enter full name" class="form-control input-md" [(ngModel)]="user.FullName" required />
+        
+      </div>
+    </div>
+    
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="email">Email</label>  
+      <div class="col-md-4">
+      <input id="email" name="email" type="text" placeholder="example@example.com" class="form-control input-md" [(ngModel)]="user.Email" required />
+        
+      </div>
+    </div>
+    
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="datebirth">Date of Birth</label>  
+      <div class="col-md-4">
+      <input id="datebirth" name="datebirth" type="text" placeholder="dd/mm/yyyy" class="form-control input-md" [(ngModel)]="user.DateBirth" required />
+        
+      </div>
+    </div>
+    
+    <!-- Password input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="passwordinput">Password </label>
+      <div class="col-md-4">
+        <input id="passwordinput" name="passwordinput" type="password" placeholder="enter password" class="form-control input-md" [(ngModel)]="user.Password" required />
+        
+      </div>
+    </div>
+    
+    <!-- Password input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="passwordinput2">Confirm Password</label>
+      <div class="col-md-4">
+        <input id="passwordinput2" name="passwordinput2" type="password" placeholder="confirm password" class="form-control input-md" [(ngModel)]="user.ConfirmPassword" required />
+        
+      </div>
+    </div>
+    
+    <!-- Button (Double) -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="button1id"></label>
+      <div class="col-md-8">
+        <button id="button1id" name="button1id" class="btn btn-dark" type="submit" (click)="addUser()"  style="float: left;margin:3% 5% 10% 0">Register</button>
+        <button id="button2id" name="button2id" class="btn btn-dark" routerLink="/main-page" style="float: left;margin: 3% 0 10% 0;">Back</button>
+      </div>
+    </div>
+    
+    </fieldset>
+    </form>
+    
+
+
+
+
+<!--
+<div class="container">
 <form id="forma" class="rec">
   <h3 id="reg_title" class="jumbotron">Registration</h3>
 
-  <div class="form-group row" style="margin-top: 10%">
     <label for="first_name">First name: </label>
     <input type="text" class="form-control" name="first_name" id="first_name" [(ngModel)]="user.FullName" required
            style="width: 40%;margin-left: 9%"/>
-  </div>
+  
 
-  <div class="form-group row">
     <label for="email">Email: </label>
     <input type="text" class="form-control" name="email" id="email" [(ngModel)]="user.Email" required
            style="width:40%;margin-left: 9%"/>
-  </div>
 
-  <div class="form-group row">
     <label for="date_birth">DateBirth: </label>
     <input type="text" class="form-control" name="date_birth" id="date_birth" [(ngModel)]="user.DateBirth" required
            style="width:40%;margin-left: 9%"/>
-  </div>
 
-  <div class="form-group row">
     <label for="password">Password: </label>
     <input type="text" class="form-control" name="password" id="password" [(ngModel)]="user.Password" required
            style="width:40%;margin-left: 9%"/>
-  </div>
 
-  <div class="form-group row">
     <label for="confirmPassword">Cofirm Password: </label>
     <input type="text" class="form-control" name="confirmPassword" id="confirmPassword" [(ngModel)]="user.ConfirmPassword" required
            style="width:40%;margin-left: 9%"/>
-  </div>
 
-  <!--
-  <div class="form-group row">
-
-    <label for="role">Role: </label>
-    <select class="form-control" name="r" [(ngModel)]="defaultValue" id="role" style="width: 40%;margin-left: 14%">
-      <option *ngFor="let v of values" [ngValue]="v">{{v}}</option>
-    </select>
-
-  </div>
--->
+  
   <div style="margin-top: 10%">
     <input type="button" class="btn btn-dark" routerLink="/main-page" value="Back"
            style="float: left;margin: 3% 0 10% 0;">
@@ -48,3 +99,5 @@
            style="float: right;margin:3% 5% 10% 0">
   </div>
 </form>
+</div>
+-->

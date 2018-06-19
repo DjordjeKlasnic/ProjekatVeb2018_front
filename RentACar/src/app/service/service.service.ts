@@ -19,4 +19,9 @@ export class ServiceService {
     service.UserName=d;
     return this.http.post( '/api/Service', service);
   }
+  approve(service:Service){
+
+    return this.http.put( '/api/Service', service);
+
+  }
 }

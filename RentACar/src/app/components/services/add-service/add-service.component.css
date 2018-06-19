@@ -3,9 +3,7 @@ label {
   font-weight: bold;
 }
 
-input, select {
-  margin-left: 6%;
-}
+
 
 #reg_title {
   height: 80%;
@@ -35,4 +33,9 @@ input, select {
 
 :-ms-input-placeholder {
   font-style: italic;
+}
+.btn-info{
+  background-color: white;
+      color: black;
+      border-color: gray;
 }

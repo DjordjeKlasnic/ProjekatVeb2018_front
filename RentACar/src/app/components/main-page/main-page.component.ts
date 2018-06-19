@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Service} from '../../model/service';
 import {ServiceService} from '../../service/service.service';
 import {Router} from '@angular/router';
+import { GlobalService } from '../../service/global.service';
 
 @Component({
   selector: 'app-main-page',
@@ -11,7 +12,7 @@ import {Router} from '@angular/router';
 export class MainPageComponent implements OnInit {
   services: Service[];
   service: Service;
-  constructor(private serviceService: ServiceService, private router: Router) { }
+  constructor(private serviceService: ServiceService, private router: Router,private globalService: GlobalService) { }
 
   ngOnInit() {
     this.services = [];
@@ -26,6 +27,14 @@ export class MainPageComponent implements OnInit {
     return true;
   }
   
+  showServices(){
+    if(localStorage.role==null || localStorage.role=='AppUser'){
+      return true;
+    }
+    return false;
+  }
+
+
   getAllServices() {
     this.serviceService.getAllServices().subscribe(result => {
       this.services = result as Service[];
@@ -33,15 +42,13 @@ export class MainPageComponent implements OnInit {
     });
   }
   
-  isManager(){
-    if(localStorage.role=="Manager"){
-      return true;
-    }
-    return false;
+  openService(service:Service){
+    
+    this.globalService.setService(service.Name);
+
+    this.router.navigate(['/service-page']);
   }
 
 
-  sendLogut(){
-    localStorage.clear();
-  }
+ 
 }
