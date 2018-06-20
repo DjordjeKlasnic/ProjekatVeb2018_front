@@ -1,0 +1,11 @@
+#reg_title {
+    height: 80%;
+    margin-left: -16.2%;
+    margin-right: -5.9%;
+    text-align: center;
+  }
+  .btn-info{
+    background-color: white;
+        color: black;
+        border-color: gray;
+  }

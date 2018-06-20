@@ -13,6 +13,11 @@ export class VehicleService {
     return this.http.get('/api/Vehicle');
   }
 
+  getServiceVehicles(serviceName:string){
+    return this.http.get('/api/Vehicle/GetServiceVehicles/'+serviceName);
+
+  }
+
   addCar(car: Car){
     
     return this.http.post( '/api/Vehicle', car);

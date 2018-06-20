@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Service} from '../../model/service';
 import {ServiceService} from '../../service/service.service';
+import { User } from '../../model/user';
+import { UserService } from '../../service/user.service';
 
 @Component({
   selector: 'app-admin-page',
@@ -9,11 +11,14 @@ import {ServiceService} from '../../service/service.service';
 })
 export class AdminPageComponent implements OnInit {
   services: Service[];
-  constructor(private serviceService: ServiceService) { }
+  users:User[];
+  constructor(private serviceService: ServiceService,private userService:UserService) { }
 
   ngOnInit() {
     this.services = [];
     this.getAllServices();
+    this.users=[];
+    this.getAllUsers();
   }
 
   getAllServices() {
@@ -22,8 +27,19 @@ export class AdminPageComponent implements OnInit {
     });
   }
 
+  getAllUsers(){
+    this.userService.getAllUsers().subscribe(result=>{
+      this.users=result as User[];
+    });
+  }
   approveService(service:Service){
     this.serviceService.approve(service).subscribe(data => {
+
+    });
+  }
+
+  approveUser(user:User){
+    this.userService.approve(user).subscribe(data=>{
 
     });
   }
