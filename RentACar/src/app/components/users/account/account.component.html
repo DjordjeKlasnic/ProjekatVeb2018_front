@@ -1,4 +1,4 @@
-<form class="form-horizontal" id="forma">
+<form class="form-horizontal" name="nesto" id="forma" #accountForm="ngForm">
     <fieldset>
     
     <!-- Form Name -->
@@ -17,7 +17,7 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="email">Email</label>  
       <div class="col-md-4">
-      <input id="email" name="email" type="text" placeholder="example@example.com" class="form-control input-md" [(ngModel)]="user.Email" required />
+      <input id="email" name="email" type="email" placeholder="example@example.com" class="form-control input-md" [(ngModel)]="user.Email" required />
         
       </div>
     </div>
@@ -26,7 +26,8 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="datebirth">Date of Birth</label>  
       <div class="col-md-4">
-      <input id="datebirth" name="datebirth" type="text" placeholder="dd/mm/yyyy" class="form-control input-md" [(ngModel)]="user.DateBirth" required />
+      <ngb-datepicker  #dp [(ngModel)]="selectedDate" (navigate)="date = $event.next" [minDate] = "today" name="date" requered=""
+      ></ngb-datepicker>
         
       </div>
     </div>
@@ -35,9 +36,10 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="passwordinput">Password </label>
       <div class="col-md-4">
-        <input id="passwordinput" name="passwordinput" type="password" placeholder="enter password" class="form-control input-md" [(ngModel)]="user.Password" required />
+        <input id="passwordinput" minlength="6"  name="passwordinput" type="password" placeholder="enter password" class="form-control input-md" [(ngModel)]="user.Password" required />
         
       </div>
+      
     </div>
     
     <!-- Password input-->
@@ -53,7 +55,8 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="button1id"></label>
       <div class="col-md-8">
-        <button id="button1id" name="button1id" class="btn btn-dark" type="submit" (click)="addUser()"  style="float: left;margin:3% 5% 10% 0">Register</button>
+        <button id="button1id" name="button1id"
+        [disabled]="(!accountForm.form.valid || (user.ConfirmPassword!=user.Password))" class="btn btn-dark" type="submit" (click)="addUser(); accountForm.reset()"  style="float: left;margin:3% 5% 10% 0">Register</button>
         <button id="button2id" name="button2id" class="btn btn-dark" routerLink="/main-page" style="float: left;margin: 3% 0 10% 0;">Back</button>
       </div>
     </div>

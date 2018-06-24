@@ -6,7 +6,7 @@ import {LoginComponent} from './components/users/login/login.component';
 import {UserService} from './service/user.service';
 import {VehicleService} from './service/vehicle.service';
 import {BranchServiceService} from './service/branch-service.service';
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AppRoutingModule} from './app-routing-module';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {AccountComponent} from './components/users/account/account.component';
@@ -25,8 +25,10 @@ import { ServicePageComponent } from './components/service-page/service-page.com
 import { AdminPageComponent } from './components/admin-page/admin-page.component';
 import { CanActivateViaAuthGuardAdmin } from './guard/auth.guard2';
 import { AddCarComponent } from './components/add-car/add-car.component';
-
-
+import { ProfilePageComponent } from './components/profile-page/profile-page.component';
+import { ReservationComponent } from './components/reservation/reservation.component';
+import {ToastrModule} from 'ngx-toastr';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,13 +39,18 @@ import { AddCarComponent } from './components/add-car/add-car.component';
     AddBranchOfficeComponent,
     ServicePageComponent,
     AdminPageComponent,
-    AddCarComponent
+    AddCarComponent,
+    ProfilePageComponent,
+    ReservationComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,  
+    NgbModule.forRoot() ,
+    ToastrModule.forRoot({preventDuplicates:true})
   ],
   providers: [UserService,GlobalService, VehicleService,BranchServiceService, RegisterService, MessageService, VehicleService, ServiceService,CanActivateViaAuthGuard,CanActivateViaAuthGuardAdmin,
     {
