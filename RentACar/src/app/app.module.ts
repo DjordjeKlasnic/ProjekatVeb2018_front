@@ -29,6 +29,10 @@ import { ProfilePageComponent } from './components/profile-page/profile-page.com
 import { ReservationComponent } from './components/reservation/reservation.component';
 import {ToastrModule} from 'ngx-toastr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { CanActivateViaAuthGuardUser } from './guard/auth.guard3';
+import { ReservationServiceService } from './service/reservation-service.service';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +56,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     NgbModule.forRoot() ,
     ToastrModule.forRoot({preventDuplicates:true})
   ],
-  providers: [UserService,GlobalService, VehicleService,BranchServiceService, RegisterService, MessageService, VehicleService, ServiceService,CanActivateViaAuthGuard,CanActivateViaAuthGuardAdmin,
+  providers: [UserService,ReservationServiceService,GlobalService, VehicleService,BranchServiceService, RegisterService, MessageService, VehicleService,CanActivateViaAuthGuardUser, ServiceService,CanActivateViaAuthGuard,CanActivateViaAuthGuardAdmin,
     {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,

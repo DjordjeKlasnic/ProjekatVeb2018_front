@@ -5,6 +5,7 @@ import {Service} from '../../../model/service';
 import {Broffice} from '../../../model/broffice';
 import { BranchServiceService } from '../../../service/branch-service.service';
 import { GlobalService } from '../../../service/global.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-branch-office',
@@ -17,7 +18,7 @@ export class AddBranchOfficeComponent implements OnInit {
   bo:Broffice;
   serviceName:string;
 
-  constructor(private route: ActivatedRoute,private branchService:BranchServiceService,private globalService:GlobalService) {
+  constructor(private route: ActivatedRoute,private branchService:BranchServiceService,private globalService:GlobalService,private toster:ToastrService) {
   }
 
   ngOnInit() {
@@ -30,8 +31,13 @@ export class AddBranchOfficeComponent implements OnInit {
     this.bo.ServiceName=this.serviceName;
     
     this.branchService.addBranch(this.bo).subscribe(data => {
+      this.toster.success("BranchOffice succesfully created");
 
-    });
+    },()=>{
+      this.toster.error("BranchOffice already exists");
+      return;
+    }
+  );
   }
 
 }

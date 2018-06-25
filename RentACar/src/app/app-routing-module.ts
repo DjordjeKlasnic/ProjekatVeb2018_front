@@ -10,6 +10,8 @@ import { ServicePageComponent } from './components/service-page/service-page.com
 import { AdminPageComponent } from './components/admin-page/admin-page.component';
 import { CanActivateViaAuthGuardAdmin } from './guard/auth.guard2';
 import { AddCarComponent } from './components/add-car/add-car.component';
+import { ReservationComponent } from './components/reservation/reservation.component';
+import { CanActivateViaAuthGuardUser } from './guard/auth.guard3';
 
 
 const appRoutes: Routes = [
@@ -21,7 +23,8 @@ const appRoutes: Routes = [
   {path: 'branch-offices', component: AddBranchOfficeComponent},
   {path: 'services', component: AddServiceComponent,canActivate: [CanActivateViaAuthGuard]},
   {path: 'admin-main', component: AdminPageComponent,canActivate:[CanActivateViaAuthGuardAdmin]},
-  {path: 'add-car', component: AddCarComponent,canActivate:[CanActivateViaAuthGuard]}
+  {path: 'add-car', component: AddCarComponent,canActivate:[CanActivateViaAuthGuard]},
+  {path: 'reservation', component: ReservationComponent,canActivate:[CanActivateViaAuthGuardUser]}
 
 ];
 

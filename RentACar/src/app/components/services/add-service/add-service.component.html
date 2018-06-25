@@ -1,4 +1,4 @@
-<form class="form-horizontal" id="forma">
+<form class="form-horizontal" name="nesto" id="forma" #accountForm="ngForm">
     <fieldset>
         <h3 id="reg_title" class="jumbotron">Add Service</h3>
 
@@ -33,7 +33,7 @@
     <div class="form-group">
         <label class="col-md-4 control-label" for="button1id"></label>
         <div class="col-md-8">
-          <input type="submit" (click)="addService()" value="Submit" class="btn btn-dark" routerLink="/main-page"  style="float: left;margin:3% 5% 10% 0"/>
+          <input type="submit" (click)="addService(); accountForm.reset()" [disabled]="!accountForm.form.valid" value="Submit" class="btn btn-dark" routerLink="/main-page"  style="float: left;margin:3% 5% 10% 0"/>
           <button id="button2id" name="button2id" class="btn btn-dark" routerLink="/main-page" style="float: left;margin: 3% 0 10% 0;">Back</button>
         </div>
       </div>

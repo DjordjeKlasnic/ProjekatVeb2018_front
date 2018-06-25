@@ -5,6 +5,7 @@ import { VehicleService } from '../../service/vehicle.service';
 import { Car } from '../../model/car';
 import { User } from '../../model/user';
 import { UserService } from '../../service/user.service';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class ServicePageComponent implements OnInit {
   cars: Car[];
   username:string;
   approved:string;
-  constructor(private route: ActivatedRoute,private globalService:GlobalService,private vehicleService:VehicleService,private userService:UserService) { }
+  constructor(private route: ActivatedRoute,private router: Router,private globalService:GlobalService,private vehicleService:VehicleService,private userService:UserService) { }
 
   ngOnInit() {
     this.serviceName=this.globalService.getService();
@@ -52,7 +53,10 @@ export class ServicePageComponent implements OnInit {
     return false;
   }
 
-  reserveCar(){
+  reserveCar(car:Car){
+    this.globalService.setCarName(car.Model);
+    this.globalService.setService(this.serviceName);
+    this.router.navigate(['/reservation']);
 
   }
 

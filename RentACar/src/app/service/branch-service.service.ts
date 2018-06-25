@@ -13,4 +13,9 @@ export class BranchServiceService {
     
     return this.http.post( '/api/BranchOffice', br);
   }
+
+  getSomeBranch(serviceName:string){
+    return this.http.get('/api/BranchOffice/GetSomeBranch/'+serviceName);
+
+  }
 }

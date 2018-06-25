@@ -22,7 +22,7 @@
                 {{car.Model}} 
              </td>
              <td>
-              <button class="btn btn-info" *ngIf="canReserve()" (click)="reserveCar()">Rent</button>
+              <button class="btn btn-info" *ngIf="canReserve()" (click)="reserveCar(car)">Rent</button>
             </td>
             </tr>     
       

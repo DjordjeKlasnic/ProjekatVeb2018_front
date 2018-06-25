@@ -5,6 +5,8 @@ import {Router} from '@angular/router';
 import {MessageService} from '../../../service/message-service.service';
 import {User} from '../../../model/user';
 import { GlobalService } from '../../../service/global.service';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-add-service',
@@ -16,7 +18,7 @@ export class AddServiceComponent implements OnInit {
   services: Service[];
   service: Service;
 
-  constructor(private serviceService: ServiceService, private router: Router, private globalService: GlobalService) {
+  constructor(private serviceService: ServiceService, private router: Router, private globalService: GlobalService,private toster:ToastrService) {
   }
 
   ngOnInit() {
@@ -45,7 +47,12 @@ export class AddServiceComponent implements OnInit {
   addService() {
 
     this.serviceService.addService(this.service).subscribe(data => {
-
-    });
+      this.toster.success("Service succesfully created");
+    },()=>{
+      this.toster.error("Service already exists");
+      return;
+    }
+  
+  );
   }
 }

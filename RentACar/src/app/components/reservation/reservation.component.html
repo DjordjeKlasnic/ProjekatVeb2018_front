@@ -1,3 +1,63 @@
-<p>
-  reservation works!
-</p>
+
+<form class="form-horizontal" name="nesto" id="forma" #accountForm="ngForm">
+    <fieldset>
+        <h3 id="reg_title" class="jumbotron">Reservation</h3>
+  
+    
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="from">From:</label>  
+            <div class="col-md-4">
+            <ngb-datepicker  #dp [(ngModel)]="selectedDate1" (navigate)="date = $event.next" [minDate] = "today" name="date" requered=""
+            ></ngb-datepicker>
+              
+            </div>
+          </div>
+
+          <div class="form-group">
+              <label class="col-md-4 control-label" for="to">To:</label>  
+              <div class="col-md-4">
+              <ngb-datepicker  #dp [(ngModel)]="selectedDate2" (navigate)="date = $event.next" [minDate] = "today" name="date" requered=""
+              ></ngb-datepicker>
+                
+              </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="to">Start Branch:</label>  
+  
+              <select class='select-option' required  [(ngModel)]='option1' name="nesto" (ngModelChange)='onOptionsSelected1($event)' >
+                  <option class='option' *ngFor='let branch of listBranch' [value]="branch.Address">{{branch.Address}}</option>
+  
+                  
+              </select>
+            </div>
+          <div class="form-group">
+              <label class="col-md-4 control-label" for="to">End Branch:</label>  
+
+            <select class='select-option' required  [(ngModel)]='option2' name="nestoo" (ngModelChange)='onOptionsSelected2($event)' >
+                <option class='option' *ngFor='let branch of listBranch' [value]="branch.Address">{{branch.Address}}</option>
+
+                
+            </select>
+          </div>
+
+            
+          <div class="form-group">
+              <label class="col-md-4 control-label" for="button1id"></label>
+              <div class="col-md-8">
+                <input type="submit" class="btn btn-dark" (click)="reserve(); accountForm.reset()" [disabled]="!accountForm.form.valid" value="Submit"  style="float: left;margin:3% 5% 10% 0"/>
+                <button id="button2id" name="button2id" class="btn btn-dark" routerLink="/service-page" style="float: left;margin: 3% 0 10% 0;">Back</button>
+              </div>
+            </div>
+    
+    
+    
+  
+  
+    </fieldset>
+    </form>
+  
+  
+  
+  
