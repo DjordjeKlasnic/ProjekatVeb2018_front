@@ -19,9 +19,21 @@ export class ServiceService {
     service.UserName=d;
     return this.http.post( '/api/Service', service);
   }
+
+  updateService(service: Service){
+    let d=localStorage.username;
+    service.UserName=d;
+    return this.http.put( '/api/Services/PutServiceObject', service);
+  }
+
   approve(service:Service){
 
     return this.http.put( '/api/Service', service);
 
+  }
+
+  deleteService(service: Service){
+    console.log("USAO U service "+service.Name);
+    return this.http.post('/api/Services/DeleteServiceName', service);
   }
 }

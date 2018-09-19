@@ -1,6 +1,6 @@
 <form class="form-horizontal" name="nesto" id="forma" #accountForm="ngForm">
     <fieldset>
-        <h3 id="reg_title" class="jumbotron">Add Service</h3>
+        <h3 id="reg_title" class="jumbotron">Update service</h3>
 
     <!-- Form Name -->
     
@@ -8,7 +8,7 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="textinput1">Name</label>  
       <div class="col-md-8">
-      <input id="textinput1" name="textinput1" type="text" placeholder="enter name" class="form-control input-md" [(ngModel)]="service.Name" required />
+      <input id="textinput1" name="textinput1" readonly type="text" placeholder="enter name" class="form-control input-md" [(ngModel)]="service.Name" required />
         
       </div>
     </div>
@@ -33,7 +33,7 @@
     <div class="form-group">
         <label class="col-md-4 control-label" for="button1id"></label>
         <div class="col-md-8">
-          <input type="submit" (click)="addService(); accountForm.reset()" [disabled]="!accountForm.form.valid" value="Submit" class="btn btn-dark" routerLink="/main-page"  style="float: left;margin:3% 5% 10% 0"/>
+          <input type="button" (click)="updateService(); accountForm.reset()" [disabled]="!accountForm.form.valid" value="Submit" class="btn btn-dark" routerLink="/main-page"  style="float: left;margin:3% 5% 10% 0"/>
           <button id="button2id" name="button2id" class="btn btn-dark" routerLink="/main-page" style="float: left;margin: 3% 0 10% 0;">Back</button>
         </div>
       </div>
@@ -41,44 +41,5 @@
 
     </fieldset>
     </form>
-
-
-
-
-
-
-
-
-<div class="container" id="allServices" align="center">
-    <table class="table table-striped"  style="background: rgba(237, 237, 237, 0.80); width: 70%;margin-top: 4%;height: 50%;overflow-x: scroll">
-      <thead>
-        <tr>
-          <th>SERVICES:</th>
-        </tr>
-      </thead>
-       
-          <tr *ngFor="let service of services">
-              
-                
-                <td *ngIf="service.Approved">
-                  {{service.Name}}
-                </td>
-                <td *ngIf="service.Approved">
-                    <button class="btn btn-info" (click)="addBranchOffice(service)">Add branch office</button>
-                  </td>
-                  <td *ngIf="service.Approved">
-                    <button class="btn btn-info" (click)="addCar(service)">Add car</button>
-                  </td>
-              </tr>     
-        
-    </table>
-
-    
-  </div>
-
-
-
-
-
 
 

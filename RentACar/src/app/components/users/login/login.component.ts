@@ -12,7 +12,7 @@ import {Router} from '@angular/router';
 export class LoginComponent implements OnInit {
 
   userLogin:UserLogin;
-  constructor(private registerService: RegisterService,private router: Router) { }
+  constructor(private registerService: RegisterService) { }
 
   ngOnInit() {
     this.userLogin=new UserLogin();
@@ -21,7 +21,6 @@ export class LoginComponent implements OnInit {
 
   sendLogin(){
     this.registerService.loginUser(this.userLogin)
-    this.router.navigate(['/main-page']);
 
   }
 

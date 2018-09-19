@@ -31,6 +31,7 @@ import {ToastrModule} from 'ngx-toastr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { CanActivateViaAuthGuardUser } from './guard/auth.guard3';
 import { ReservationServiceService } from './service/reservation-service.service';
+import { UpdateServiceComponent } from './components/services/update-service/update-service.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { ReservationServiceService } from './service/reservation-service.service
     AdminPageComponent,
     AddCarComponent,
     ProfilePageComponent,
-    ReservationComponent
+    ReservationComponent,
+    UpdateServiceComponent
   ],
   imports: [
     BrowserModule,

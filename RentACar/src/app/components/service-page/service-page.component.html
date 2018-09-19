@@ -1,7 +1,15 @@
 <h3 id="reg_title" class="jumbotron">{{serviceName}}</h3>
+<div class = "container" style="background: rgba(237, 237, 237, 0.80); width: 40%;margin-top: 4%;">
+  <div>
+    <label>Email: {{service.Email}}</label>
+  </div>
+  <div >
+    <label>Description: {{service.Description}}</label>
+  </div>
+</div>
 
 <div class="container" align="center" style="overflow-y: scroll">
-  <table class="table table-dark"  style="width: 70%;margin-top: 4%;height: 50%;overflow-x: scroll">
+  <table class="table table-striped"  style="background: rgba(237, 237, 237, 0.80); width: 70%;margin-top: 4%;height: 50%;overflow-x: scroll">
     <thead>
       <tr>
         <th>VEHICLES:</th>
@@ -28,3 +36,31 @@
       
   </table>
 </div>
+
+<div class="container" align="center" style="overflow-y: scroll">
+  <table class="table table-striped"  style="background: rgba(237, 237, 237, 0.80); width: 70%;margin-top: 4%;height: 50%;overflow-x: scroll">
+    <thead>
+      <tr>
+        <th>BRANCH OFFICES:</th>
+      </tr>
+      <tr>
+        <th>Address</th>
+      </tr>
+    </thead>
+     
+        <tr *ngFor="let bo of branchOffices">
+            
+              
+              <td>
+                 {{bo.Address}} 
+              </td>
+        
+             <td>
+              <button class="btn btn-info" *ngIf="canChangeOffice()"  (click)="updateOffice(bo)">Update</button>
+              <button class="btn btn-info" *ngIf="canChangeOffice()" (click)="deleteOffice(bo)">Delete</button>
+            </td>
+            </tr>     
+      
+  </table>
+</div>
+

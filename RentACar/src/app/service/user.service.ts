@@ -18,9 +18,21 @@ export class UserService {
     return this.http.get( '/api/AppUser/GetLogUser/'+username );
 
   }
+  getByUsername(username:string){
+    return this.http.get( '/api/AppUser/GetByUsername/'+username );
+  }
+
   approve(user:User){
 
     return this.http.put( '/api/AppUser', user);
 
+  }
+
+  update(user:User){
+    return this.http.put( '/api/AppUser/ChangeUser',user );
+  }
+
+   changePassword(object:any){
+    return this.http.post( '/api/Account/ChangePassword', object );
   }
 }

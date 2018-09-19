@@ -20,13 +20,14 @@
       
     </div>
   </div>
-  <div class="form-group">
-    <label class="col-md-4 control-label" for="textinput3">Year of Making</label>  
-    <div class="col-md-4">
-    <input id="textinput3" name="textinput3" type="text" placeholder="enter year of making" class="form-control input-md" [(ngModel)]="car.YearOfMaking" required />
-      
+ <div class="form-group">
+      <label class="col-md-4 control-label" for="datebirth">Year of making</label>  
+      <div class="col-md-4">
+      <ngb-datepicker  #dp [(ngModel)]="selectedDate" (navigate)="date = $event.next" [minDate] = "today" name="date" requered=""
+      ></ngb-datepicker>
+        
+      </div>
     </div>
-  </div>
   <div class="form-group">
     <label class="col-md-4 control-label" for="textinput4">Description</label>  
     <div class="col-md-4">

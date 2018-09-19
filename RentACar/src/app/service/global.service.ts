@@ -8,6 +8,8 @@ import { Car } from '../model/car';
 export class GlobalService {
   serviceName:string
   carRet:string;
+  service:Service;
+
   constructor() { }
 
   getService(){
@@ -16,6 +18,14 @@ export class GlobalService {
   
   setService(serviceName1:string){
     this.serviceName=serviceName1;
+  }
+
+  getServiceObject(){
+    return this.service;
+  }
+
+  setServiceObject(service:Service){
+    this.service=service;
   }
 
   setCarName(carName:string){

@@ -3,13 +3,15 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {User} from '../model/user';
 import {UserLogin} from '../model/userLogin';
 import {Observable} from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RegisterService {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private toastrService: ToastrService, private router: Router) {
   }
 
   registerUser(user: User) {
@@ -46,8 +48,12 @@ export class RegisterService {
           localStorage.setItem('role', role);
           let d=JSON.parse(decodedJwtJsonData);
           localStorage.setItem('username',d.nameid);
+          this.toastrService.success("You are successfully login!")
+          this.router.navigate(['/main-page']);
+
         },
         err => {
+          this.toastrService.error("Wrong username or password!")
           console.log('Error occured');
         }
       );

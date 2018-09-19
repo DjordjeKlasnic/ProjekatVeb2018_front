@@ -18,4 +18,6 @@ export class BranchServiceService {
     return this.http.get('/api/BranchOffice/GetSomeBranch/'+serviceName);
 
   }
+
+  
 }
